@@ -1,5 +1,8 @@
 syntax = "proto3";
-package main;
+
+package domain;
+
+option go_package = "evento-standalone/internal/grpc/domain";
 
 message Event {
   int32 id = 1;

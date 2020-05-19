@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "evento-standalone/internal/grpc/service";
+
+import "evento-standalone/internal/proto/domain/event.proto";
+
+//EventService Definition
+service EventService {
+  rpc add (domain.Event) returns (AddEventResponse);
+}
+
+message AddEventResponse {
+  domain.Event addedEvent = 1;
+  Error error = 2;
+}
+message Error {
+  string code = 1;
+  string message = 2;
+}
